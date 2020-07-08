@@ -2,12 +2,15 @@
   <div>
     <h2>Hello: {{ name }}</h2>
     <h2>age: {{ age }}</h2>
-    <input type="text" :value="name">
     <input type="text" v-model="name">
+    <input type="text" v-model="age">
     <center>
-    <div><button @click="doSave">SAVE</button></div>
-    <div><button @click="doMenu">MAIN MENU</button></div>
-    <div><button @click="doHome">HOME</button></div>
+    <p>    
+    <div><v-btn @click="doSave" color="error" dark large>SAVE</v-btn></div>
+    <p>
+    <div><v-btn @click="doHome" color="warning" dark large>HOME</v-btn></div>
+    <p>
+    <div><v-btn @click="doMenu" color="success" dark large>MAIN MENU</v-btn></div>
     </center>
   </div>
 </template>
