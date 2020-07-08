@@ -2,8 +2,8 @@
   <div>
     <h2>Hello: {{ name }}</h2>
     <h2>age: {{ age }}</h2>
-    <input type="text" v-model="name">
-    <input type="text" v-model="age">
+    <input class="red--text text--lighten-3" type="text" v-model="name">
+    <input class="red--text text--lighten-3" type="text" v-model="age">
     <center>
     <p>    
     <div><v-btn @click="doSave" color="error" dark large>SAVE</v-btn></div>
