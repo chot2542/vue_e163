@@ -2,10 +2,13 @@
  <v-app>
    <v-card>
        <v-card-title>
-         <h1>Login</h1>
+         <h1>Register</h1>
        </v-card-title>
      <v-card-text>
        <v-form>
+         <v-text-field  prepend-icon="accessibility" label="name" />
+         <v-text-field  prepend-icon="call" label="phone number" />
+         <v-text-field  prepend-icon="account_balance" label="address" />
          <v-text-field  prepend-icon="mdi-account-circle" label="Username" />
          <v-text-field 
             :type="showPassword ? 'text' : 'password'" 
@@ -15,9 +18,10 @@
             @click:append="showPassword = !showPassword"
           />
          <v-card-actions>
-         <nuxt-link to="/register"><v-btn @click="register" color="success" dark large>REGISTER</v-btn></nuxt-link>
-          <v-spacer></v-spacer>
-         <v-btn @click="doLogin" color="primary" dark large>LOGIN</v-btn>
+         <center>
+         <nuxt-link to="/login"><v-btn @click="confirm" color="primary" dark large>CONFIRM</v-btn></nuxt-link>
+         <nuxt-link to="/login"><v-btn @click="cancel" color="error" dark large>CANCEL</v-btn></nuxt-link>
+         </center>
          </v-card-actions>
        </v-form>
      </v-card-text>
