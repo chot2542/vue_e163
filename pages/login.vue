@@ -1,6 +1,6 @@
 <template>
  <v-app>
-   <v-card>
+   <v-card color="#02b4f4">
        <v-card-title>
          <h1>Login</h1>
        </v-card-title>
@@ -17,7 +17,7 @@
          <v-card-actions>
          <nuxt-link to="/register"><v-btn @click="register" color="success" dark large>REGISTER</v-btn></nuxt-link>
           <v-spacer></v-spacer>
-         <v-btn @click="doLogin" color="primary" dark large>LOGIN</v-btn>
+         <nuxt-link to="/"><v-btn @click="doLogin" color="warning" dark large>LOGIN</v-btn></nuxt-link>
          </v-card-actions>
        </v-form>
      </v-card-text>

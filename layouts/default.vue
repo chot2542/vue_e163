@@ -1,36 +1,68 @@
 <template>
-    <!-- App.vue -->
-
 <v-app>
-
-    <v-system-bar
-          color="orange"
+  <v-system-bar
+          color="#708090"
           :height="height"
           :lights-out="lightsOut"
           :window="window"
         >
-          <v-icon>mdi-gmail</v-icon>
-          <span>10 unread emails</span>
-          <v-spacer></v-spacer>
-          <v-icon>mdi-wifi-strength-4</v-icon>
           <v-icon>mdi-signal-cellular-outline</v-icon>
-          <v-icon>mdi-battery</v-icon>
+          <span>AIS</span>
+          &nbsp;<v-icon>mdi-wifi-strength-4</v-icon>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span>12:30</span>
+          <v-spacer></v-spacer>
+          <v-icon>mdi-battery</v-icon>
+          <span>100%</span>
         </v-system-bar>
         
-  <v-navigation-drawer app>
-    <!-- -->
-  </v-navigation-drawer>
+  <v-navigation-drawer
+      v-model="drawer"
+      app
+      clipped
+    >
+    <!--ภาพตัวเอง-->
+    <template v-slot:prepend>
+        <v-list-item two-line>
+          <v-list-item-avatar>
+            <img src="../img/pro.jpg">
+          </v-list-item-avatar>
 
-<div>
+          <v-list-item-content>
+            <v-list-item-title>Aekachot Ngamsombut</v-list-item-title>
+            <v-list-item-subtitle>Logged In</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </template>
+
+      <v-divider></v-divider>
+
+      <v-list dense>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          @click=""
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+      <lang-selector />
+  </v-navigation-drawer>
+  <div>
     <v-app-bar
-      color="blue darken-2"
+      color="deep-purple accent-4"
       dense
       dark
     >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>หน้าหลัก</v-toolbar-title>
+      <v-toolbar-title>Page title</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -67,58 +99,59 @@
         </v-list>
       </v-menu>
     </v-app-bar>
-</div>
+  </div>
   <!-- Sizes your content based upon application components -->
   <v-main>
-
     <!-- Provides the application the proper gutter -->
-    <v-content>
-      <nuxt/>
-  </v-content>
+    <v-container fluid>
+      <!-- If using vue-router -->
+      <router-view></router-view>
+    </v-container>
   </v-main>
-  
 
-  <v-footer
-    dark
-    padless
-  >
-    <v-card
-      class="flex"
-      flat
-      tile
-    >
-      <v-card-title class="teal">
-
-        <v-spacer></v-spacer>
-
-        <v-btn
-          v-for="icon in icons"
-          :key="icon"
-          class="mx-4"
-          dark
-          icon
-        >
-          <v-icon size="24px">{{ icon }}</v-icon>
-        </v-btn>
-      </v-card-title>
-
-      <v-card-text class="py-2 white--text text-center">
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
-      </v-card-text>
-    </v-card>
+  <v-footer app>
+    <!-- -->
   </v-footer>
 </v-app>
 </template>
-
 <script>
-  export default {
-    data: () => ({
-      icons: [
-        'mdi-facebook',
-        'mdi-twitter',
-        'mdi-linkedin',
-        'mdi-instagram',
-      ],
-    }),
-  }
+
+import LangSelector from '~/components/lang-selector.vue'
+export default {
+  components: {
+    LangSelector,
+  },
+
+  data () {
+      return {
+        items: [
+          { title: 'Home', icon: 'mdi-home-city' },
+          { title: 'ประวัติ', icon: 'mdi-account' },
+          { title: 'สมาชิก', icon: 'face' },
+          { title: 'สินค้าแนะนำ', icon: 'touch_app' },
+          { title: 'Users', icon: 'mdi-account-group-outline' },
+          { title: 'Users', icon: 'mdi-account-group-outline' },
+          { title: 'Users', icon: 'mdi-account-group-outline' },
+        ],
+      }
+    },
+  computed: {
+    drawer: {
+      get() {
+        return this.$store.state.drawer
+      },
+      set(v) {
+        this.$store.commit('setDrawer', v)
+      },
+    },
+  }, // computed
+
+  watch: {
+    '$store.state.lang'() {
+      this.$i18n.locale = this.$store.state.lang
+    },
+  }, // watch
+  
+}
 </script>
+

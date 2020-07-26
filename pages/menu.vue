@@ -1,4 +1,7 @@
 <template>
+ <div>
+   <center>
+   <v-app>
   <v-container fluid class="pa-0">
     <v-row align="center">
       <v-col cols="12" sm="6">
@@ -22,4 +25,7 @@
       </v-col>
     </v-row>
   </v-container>
+  </v-app>
+   </center>
+ </div>
 </template>

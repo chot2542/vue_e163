@@ -83,8 +83,8 @@
       </v-card-text>
 
       <v-card-text class="white--text pt-0">
-        ****************  Chaiyaphum Technical College  ****************
-        ****************************************************************
+        ************ Chaiyaphum Technical College ***********
+        
       </v-card-text>
 
       <v-divider></v-divider>

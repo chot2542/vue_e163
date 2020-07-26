@@ -1,6 +1,6 @@
 <template>
  <v-app>
-   <v-card>
+   <v-card color="#02b4f4">
        <v-card-title>
          <h1>Register</h1>
        </v-card-title>
@@ -19,7 +19,7 @@
           />
          <v-card-actions>
          <center>
-         <nuxt-link to="/login"><v-btn @click="confirm" color="primary" dark large>CONFIRM</v-btn></nuxt-link>
+         <nuxt-link to="/login"><v-btn @click="confirm" color="warning" dark large>CONFIRM</v-btn></nuxt-link>
          <nuxt-link to="/login"><v-btn @click="cancel" color="error" dark large>CANCEL</v-btn></nuxt-link>
          </center>
          </v-card-actions>
