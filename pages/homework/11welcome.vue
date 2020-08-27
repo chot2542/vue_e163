@@ -9,7 +9,7 @@
           <br>
           <br>
           <v-card class="grey lighten-1" style="width: 300px; height: 300px;">
-        <img style="position:relative; top:-20px" src ="../img/pro1.jpg" width="260" height="340">
+        <img style="position:relative; top:-20px" src ="../../img/pro1.jpg" width="260" height="340">
         </v-card>
         <br>
         <br>

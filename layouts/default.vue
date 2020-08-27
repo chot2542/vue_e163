@@ -48,7 +48,9 @@
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <nuxt-link :to="item.link">
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </nuxt-link>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -125,13 +127,13 @@ export default {
   data () {
       return {
         items: [
-          { title: 'Home', icon: 'mdi-home-city' },
-          { title: 'ประวัติ', icon: 'mdi-account' },
-          { title: 'สมาชิก', icon: 'face' },
-          { title: 'สินค้าแนะนำ', icon: 'touch_app' },
-          { title: 'Users', icon: 'mdi-account-group-outline' },
-          { title: 'Users', icon: 'mdi-account-group-outline' },
-          { title: 'Users', icon: 'mdi-account-group-outline' },
+          { title: 'Home', icon: 'mdi-home-city',link:'home' },
+          { title: 'ประวัติ', icon: 'mdi-account',link:'' },
+          { title: 'สมาชิก', icon: 'face',link:'' },
+          { title: 'สินค้าแนะนำ', icon: 'touch_app',link:'' },
+          { title: 'Users', icon: 'mdi-account-group-outline',link:'' },
+          { title: 'Users', icon: 'mdi-account-group-outline',link:'' },
+          { title: 'Users', icon: 'mdi-account-group-outline',link:'' },
         ],
       }
     },
