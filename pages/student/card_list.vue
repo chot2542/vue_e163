@@ -29,11 +29,11 @@
       }
     },
     created(){
-        this.listStd()
+        this.listCard()
     },
     methods:{
-      async  listStd(){
-            let res = await fetch('http://localhost:7001/listCrad')
+      async  listCard(){
+            let res = await fetch('http://localhost:7001/listCard')
             let data = await res.json()
             console.log(data)
             this.desserts = data.rows[0];
